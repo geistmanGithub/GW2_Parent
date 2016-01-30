@@ -2,6 +2,7 @@ group 'gw2Application'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'jsonschema2pojo'
+apply plugin: 'java'
 
 buildscript {
     repositories {
@@ -10,7 +11,7 @@ buildscript {
 
     dependencies {
         // this plugin
-        classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:${js2p.version}'
+        classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:0.4.18'
         // add additional dependencies here if you wish to reference instead of generate them (see example directory)
     }
 }
