@@ -12,6 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 public class SimpleRestClientTest {
 
+    private static final Logger log = LoggerFactory.getLogger(SimpleRestClientTest.class);
+
     @org.junit.BeforeClass
     public static void setUp() throws Exception {
     }
@@ -23,5 +25,9 @@ public class SimpleRestClientTest {
 
         assertNotNull(quote.getType());
         assertNotNull(quote.getValue());
+
+        log.info(quote.toString());
+
+
     }
 }
