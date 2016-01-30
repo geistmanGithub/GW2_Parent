@@ -12,16 +12,15 @@ import org.springframework.web.client.RestTemplate;
 
 public class SimpleRestClientTest {
 
-    Quote quote;
-
     @org.junit.BeforeClass
-    public void setUp() throws Exception {
-        RestTemplate restTemplate = new RestTemplate();
-        this.quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
+    public static void setUp() throws Exception {
     }
 
     @Test
     public void testQuoteSuccess() throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+        Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
+
         assertNotNull(quote.getType());
         assertNotNull(quote.getValue());
     }
