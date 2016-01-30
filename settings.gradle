@@ -1,3 +1,4 @@
 rootProject.name = 'GW2_Parent'
 include 'SpringRestTutorial'
+include 'jsonschema2pojo'
 
