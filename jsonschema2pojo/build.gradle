@@ -31,6 +31,7 @@ dependencies {
     compile 'joda-time:joda-time:2.2'
 }
 
+// TODO Make this configuration's source and targetDirectory depend on the gradle super Project build.
 // Each configuration is set to the default value
 jsonSchema2Pojo {
     // Whether to generate builder-style methods of the form withXxx(value) (that return this),
