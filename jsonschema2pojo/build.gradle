@@ -11,7 +11,7 @@ buildscript {
 
     dependencies {
         // this plugin
-        classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:0.4.18'
+        classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:+'
         // add additional dependencies here if you wish to reference instead of generate them (see example directory)
     }
 }
