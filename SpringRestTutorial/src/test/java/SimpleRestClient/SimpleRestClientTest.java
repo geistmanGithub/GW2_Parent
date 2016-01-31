@@ -23,11 +23,18 @@ public class SimpleRestClientTest {
         RestTemplate restTemplate = new RestTemplate();
         Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
 
+        log.info("String representation of quote: " + quote.toString());
         assertNotNull(quote.getType());
         assertNotNull(quote.getValue());
 
-        log.info(quote.toString());
+        log.info("Type: " + quote.getType());
+        assertEquals(quote.getType(), "success");
+
+
+
+
 
 
     }
+
 }
