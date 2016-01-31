@@ -13,6 +13,8 @@ import org.springframework.web.client.RestTemplate;
 public class SimpleRestClientTest {
 
     private static final Logger log = LoggerFactory.getLogger(SimpleRestClientTest.class);
+    private static RestTemplate restTemplate = new RestTemplate();
+    private  static final Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
 
     @org.junit.BeforeClass
     public static void setUp() throws Exception {
@@ -20,8 +22,6 @@ public class SimpleRestClientTest {
 
     @Test
     public void testQuoteSuccess() throws Exception {
-        RestTemplate restTemplate = new RestTemplate();
-        Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
 
         log.info("String representation of quote: " + quote.toString());
         assertNotNull(quote.getType());
@@ -29,11 +29,6 @@ public class SimpleRestClientTest {
 
         log.info("Type: " + quote.getType());
         assertEquals(quote.getType(), "success");
-
-
-
-
-
 
     }
 
