@@ -36,7 +36,7 @@ public class StaticEndpoint {
             HttpURLConnection connection = (HttpURLConnection) urlConnection;
             connection.setConnectTimeout(3000);
             connection.setReadTimeout(3000);
-            connection.setRequestMethod("HEAD");
+            connection.setRequestMethod("GET");
             int responseCode = connection.getResponseCode();
             log.debug("URL:" + url.toExternalForm() + " Response Code:" + responseCode);
             return (200 <= responseCode && responseCode <= 399);
