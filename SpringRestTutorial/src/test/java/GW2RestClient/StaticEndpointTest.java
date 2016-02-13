@@ -22,4 +22,11 @@ public class StaticEndpointTest {
         StaticEndpoint staticEndpoint = new StaticEndpoint("https://www.google.com");
         assertTrue(staticEndpoint.isReachable());
     }
+
+    @Test
+    public void testGW2ApiIsReachable() throws Exception {
+        StaticEndpoint staticEndpoint = new StaticEndpoint("https://api.guildwars2.com");
+        assertTrue(staticEndpoint.isReachable());
+    }
+
 }
