@@ -13,7 +13,7 @@ public class StaticEndpointTest {
 
     @Test
     public void testIsReachable() throws Exception {
-        StaticEndpoint staticEndpoint = new StaticEndpoint();
+        StaticEndpoint staticEndpoint = new StaticEndpoint("http://www.google.com");
 
         assertTrue(staticEndpoint.isReachable());
     }

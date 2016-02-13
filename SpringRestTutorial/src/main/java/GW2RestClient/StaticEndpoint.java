@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -14,11 +15,23 @@ import java.net.URLConnection;
 public class StaticEndpoint {
 
     private static final Logger log = LoggerFactory.getLogger(StaticEndpoint.class);
+    private URL url = null;
+
+
+    public StaticEndpoint(String s) {
+
+        try {
+            url = new URL("http://www.google.com");
+        } catch (MalformedURLException e) {
+            log.error(e.toString(), e);
+        }
+    }
+
+
     protected boolean isReachable() {
 
 
         try {
-            final URL url = new URL("http://www.google.com");
             final URLConnection urlConnection = url.openConnection();
             HttpURLConnection connection = (HttpURLConnection) urlConnection;
             connection.setConnectTimeout(3000);
