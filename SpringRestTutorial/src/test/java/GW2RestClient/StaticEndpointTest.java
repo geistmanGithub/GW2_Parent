@@ -12,9 +12,14 @@ public class StaticEndpointTest {
     private final static Logger log = LoggerFactory.getLogger(StaticEndpointTest.class);
 
     @Test
-    public void testIsReachable() throws Exception {
+    public void testHttpIsReachable() throws Exception {
         StaticEndpoint staticEndpoint = new StaticEndpoint("http://www.google.com");
+        assertTrue(staticEndpoint.isReachable());
+    }
 
+    @Test
+    public void testHttpsIsReachable() throws Exception {
+        StaticEndpoint staticEndpoint = new StaticEndpoint("https://www.google.com");
         assertTrue(staticEndpoint.isReachable());
     }
 }

@@ -18,10 +18,10 @@ public class StaticEndpoint {
     private URL url = null;
 
 
-    public StaticEndpoint(String s) {
+    public StaticEndpoint(String url) {
 
         try {
-            url = new URL("http://www.google.com");
+            this.url = new URL(url);
         } catch (MalformedURLException e) {
             log.error(e.toString(), e);
         }
