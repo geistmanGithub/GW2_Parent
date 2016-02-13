@@ -4,13 +4,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by geistman on 13.02.16.
- */
-public class StaticEndpintTest {
+public class StaticEndpointTest {
 
     @Test
     public void testIsReachable() throws Exception {
-        assertTrue(new StaticEndpint().isReachable());
+        assertTrue(new StaticEndpoint().isReachable());
     }
 }

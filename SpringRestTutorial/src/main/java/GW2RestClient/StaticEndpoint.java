@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * Created by geistman on 13.02.16.
- */
-public class StaticEndpint {
+public class StaticEndpoint {
 
     protected boolean isReachable() {
 
