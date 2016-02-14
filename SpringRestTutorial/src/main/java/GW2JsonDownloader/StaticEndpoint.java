@@ -1,10 +1,9 @@
-package GW2RestClient;
+package GW2JsonDownloader;
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;

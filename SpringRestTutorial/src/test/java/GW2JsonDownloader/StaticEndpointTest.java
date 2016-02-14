@@ -1,7 +1,6 @@
-package GW2RestClient;
+package GW2JsonDownloader;
 
 import org.junit.Test;
-import org.junit.runners.model.Statement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
