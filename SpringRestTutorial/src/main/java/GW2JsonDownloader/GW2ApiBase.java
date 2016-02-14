@@ -50,7 +50,7 @@ public class GW2ApiBase {
         return connection;
     }
 
-    protected String getContent() {
+    protected String getVersions() {
         StringBuilder result = new StringBuilder();
         try {
             HttpURLConnection connection = getHttpURLConnection();

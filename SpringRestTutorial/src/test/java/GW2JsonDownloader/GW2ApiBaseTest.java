@@ -11,7 +11,6 @@ import static org.junit.Assert.*;
 public class GW2ApiBaseTest {
 
     private final static Logger log = LoggerFactory.getLogger(GW2ApiBaseTest.class);
-    private final String VERSIONENDPOINTSTRING = "[\"v1\",\"v2\"]";
 
     @Test
     public void testGW2ApiIsReachable() throws Exception {
@@ -22,6 +21,6 @@ public class GW2ApiBaseTest {
     @Test
     public void testAPIVersionIsAsExpected() throws Exception {
         GW2ApiBase gw2ApiBase = new GW2ApiBase("https://api.guildwars2.com");
-        assertThat(gw2ApiBase.getContent(), is(VERSIONENDPOINTSTRING));
+        assertThat(gw2ApiBase.getVersions(), is("[\"v1\",\"v2\"]"));
     }
 }
