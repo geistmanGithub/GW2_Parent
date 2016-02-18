@@ -22,7 +22,7 @@ public class GW2Api {
 
         try {
             this.url = new URL(url);
-            openGetConnection();
+            openGetConnection(this.url);
             connection.disconnect();
         } catch (MalformedURLException e) {
             log.error(e.toString(), e);
@@ -45,14 +45,20 @@ public class GW2Api {
         }
     }
 
-    private void openGetConnection() throws IOException{
+    private HttpURLConnection openGetConnection(URL url) throws IOException{
         connection = (HttpURLConnection) url.openConnection();
         connection.setConnectTimeout(3000);
         connection.setReadTimeout(3000);
         connection.setRequestMethod("GET");
+
+        return connection;
     }
 
     protected String getContent() {
+        return getContent(connection);
+    }
+
+    private String getContent(HttpURLConnection connection) {
         StringBuilder result = new StringBuilder();
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -67,26 +73,13 @@ public class GW2Api {
         return result.toString();
     }
 
-    public String getVersions() {
-        StringBuilder result = new StringBuilder();
-
+    protected String getVersions() {
         try {
-            URL url = new URL(BASEURL);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setConnectTimeout(3000);
-            connection.setReadTimeout(3000);
-            connection.setRequestMethod("GET");
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            result.append(reader.readLine());
-            reader.close();
-            log.debug("Content:" + result.toString());
-
+            return getContent(openGetConnection(new URL(BASEURL)));
         } catch (IOException e) {
             log.error(e.toString(), e);
             return null;
         }
-        return result.toString();
     }
 
 }
