@@ -12,7 +12,6 @@ import static org.junit.Assert.*;
 public class GW2ApiTest {
 
     private final static Logger log = LoggerFactory.getLogger(GW2ApiTest.class);
-    private GW2Api gw2Api;
     private String baseURL;
     private String GW2ApiVersion;
 
@@ -25,7 +24,7 @@ public class GW2ApiTest {
 
     @Test
     public void testGW2BaseApisAsExpected() throws Exception {
-        gw2Api = new GW2Api(baseURL);
+        GW2Api gw2Api = new GW2Api(baseURL);
         assertThat(gw2Api.isReachable(), is(TRUE));
         assertThat(gw2Api.getContent(), is("[\"v1\",\"v2\"]"));
     }
@@ -38,5 +37,6 @@ public class GW2ApiTest {
         final String langParam = "lang=en";
         GW2Api continentsEndpoint = new GW2Api(baseURL + "/" + GW2ApiVersion + "/" + endpoint + "?" + idsParam + "&" + langParam);
         assertThat(continentsEndpoint.isReachable(), is (TRUE));
+        assertThat(continentsEndpoint.getVersions(), is("[\"v1\",\"v2\"]"));
     }
 }
