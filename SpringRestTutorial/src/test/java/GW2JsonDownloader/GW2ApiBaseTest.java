@@ -14,12 +14,15 @@ public class GW2ApiBaseTest {
 
     private final static Logger log = LoggerFactory.getLogger(GW2ApiBaseTest.class);
     private GW2ApiBase gw2ApiBase;
-
+    private String baseURL;
+    private String GW2ApiVersion;
 
 
     @Before
     public void setUp() throws Exception {
-        gw2ApiBase = new GW2ApiBase("https://api.guildwars2.com");
+        baseURL = "https://api.guildwars2.com";
+        gw2ApiBase = new GW2ApiBase(baseURL);
+        GW2ApiVersion = "v2";
     }
 
     @Test
@@ -30,5 +33,15 @@ public class GW2ApiBaseTest {
     @Test
     public void testAPIVersionIsAsExpected() throws Exception {
         assertThat(gw2ApiBase.getVersions(), is("[\"v1\",\"v2\"]"));
+    }
+
+    @Test
+    public void testGW2ApiContinentEndpointIsReachable() throws Exception {
+        //TODO: replace with URL to not define URL Buildup logic with strings.
+        final String endpoint = "continents";
+        final String idsParam = "ids=all";
+        final String langParam = "lang=en";
+        GW2ApiBase continentsEndpoint = new GW2ApiBase(baseURL + "/" + GW2ApiVersion + "/" + endpoint + "?" + idsParam + "&" + langParam);
+        assertThat(continentsEndpoint.isReachable(), is (TRUE));
     }
 }
