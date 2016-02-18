@@ -10,14 +10,14 @@ import java.io.InputStreamReader;
 import java.net.*;
 
 
-public class GW2ApiBase {
+public class GW2Api {
 
-    private static final Logger log = LoggerFactory.getLogger(GW2ApiBase.class);
+    private static final Logger log = LoggerFactory.getLogger(GW2Api.class);
     private URL url;
     private HttpURLConnection connection;
 
 
-    public GW2ApiBase(String url) {
+    public GW2Api(String url) {
 
         try {
             this.url = new URL(url);
@@ -51,7 +51,7 @@ public class GW2ApiBase {
         connection.setRequestMethod("GET");
     }
 
-    protected String getVersions() {
+    protected String getContent() {
         StringBuilder result = new StringBuilder();
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -64,7 +64,5 @@ public class GW2ApiBase {
             return null;
         }
         return result.toString();
-
-
     }
 }
